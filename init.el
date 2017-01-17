@@ -1,8 +1,8 @@
+(package-initialize)
 (require 'package)
 ;; Using MELPA not stable because of evil
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/"))
-(package-initialize)
 
 (tool-bar-mode -1)
 
@@ -35,15 +35,16 @@
 (global-set-key [f8] 'neotree-toggle)
 ;; Make neotree switch to projectile root 
 (setq projectile-switch-project-action 'neotree-projectile-action)
+
+;; EVILLLL
+(require 'evil)
+(evil-mode 1)
 ;; Evil mode neotree hooks
 (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
 (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-enter)
 (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
 (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
 
-;; EVILLLL
-(require 'evil)
-(evil-mode 1)
 
 ;; Allow moving across windows
 (windmove-default-keybindings)
